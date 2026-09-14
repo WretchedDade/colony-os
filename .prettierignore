@@ -1,0 +1,6 @@
+dist/
+node_modules/
+coverage/
+.husky/_/
+package-lock.json
+screeps.json

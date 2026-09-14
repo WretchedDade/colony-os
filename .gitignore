@@ -46,6 +46,11 @@ web_modules/
 
 # TypeScript cache
 *.tsbuildinfo
+.rpt2_cache/
+tsc-out/
+
+# Screeps upload credentials
+screeps.json
 
 # Optional npm cache directory
 .npm

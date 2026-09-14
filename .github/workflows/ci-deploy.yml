@@ -1,0 +1,100 @@
+name: Verify and deploy
+
+on:
+    pull_request:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+        inputs:
+            destination:
+                description: Screeps destination to deploy
+                required: true
+                default: simulation
+                type: choice
+                options:
+                    - simulation
+                    - main
+
+permissions:
+    contents: read
+
+jobs:
+    verify:
+        name: Verify
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check out repository
+              uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+                  cache: npm
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Check formatting, lint, tests, types, and build
+              run: npm run check
+
+    deploy-main:
+        name: Deploy to Screeps main
+        if: >-
+            (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+            (github.event_name == 'workflow_dispatch' && inputs.destination == 'main')
+        needs: verify
+        runs-on: ubuntu-latest
+        environment: main
+        steps:
+            - name: Check out repository
+              uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+                  cache: npm
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Require Screeps token
+              env:
+                  SCREEPS_TOKEN: ${{ secrets.SCREEPS_TOKEN }}
+              run: test -n "$SCREEPS_TOKEN"
+
+            - name: Upload main branch to Screeps
+              env:
+                  SCREEPS_TOKEN: ${{ secrets.SCREEPS_TOKEN }}
+              run: npm run deploy:main
+
+    deploy-simulation:
+        name: Deploy to Screeps simulation
+        if: github.event_name == 'workflow_dispatch' && inputs.destination == 'simulation'
+        needs: verify
+        runs-on: ubuntu-latest
+        environment: simulation
+        steps:
+            - name: Check out repository
+              uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+                  cache: npm
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Require Screeps token
+              env:
+                  SCREEPS_TOKEN: ${{ secrets.SCREEPS_TOKEN }}
+              run: test -n "$SCREEPS_TOKEN"
+
+            - name: Upload simulation branch to Screeps
+              env:
+                  SCREEPS_TOKEN: ${{ secrets.SCREEPS_TOKEN }}
+              run: npm run deploy:sim
