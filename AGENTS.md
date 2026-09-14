@@ -25,6 +25,24 @@ Prefer to:
 
 Avoid implementing full features unless the user explicitly asks you to write or modify the code.
 
+## GitHub Progress Tracking
+
+Keep GitHub aligned with work that has actually been completed or started:
+
+- Move the active issue on the Colony OS project to `In Progress` when implementation begins.
+- Update the issue with concise verification notes when a meaningful milestone step is complete.
+- Close an issue and mark it `Done` only after its acceptance criteria have been verified in the simulation or MMO.
+- Create the small, observable issues needed to complete the active milestone; do not pre-create the entire roadmap as a backlog.
+
+### Finding the Current Goal
+
+When asked for the current goal, consult the Colony OS GitHub project and open GitHub issues before proposing work:
+
+1. An issue marked `In Progress` is the current goal.
+2. If nothing is in progress, the highest-priority `Todo` issue is the next goal.
+3. Use `docs/milestones.md` to explain the goal's broader learning context and to select a new issue only when no active or next issue exists.
+4. Do not invent or silently replace a tracked goal; surface a conflict or ask for direction instead.
+
 ## When Code Changes Are Requested
 
 If the user clearly asks for implementation, keep changes focused and easy to learn from.
