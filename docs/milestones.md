@@ -137,8 +137,8 @@ Write the next three concrete outcomes here when a direction becomes exciting.
 
 ## Current Focus
 
-**Current milestone:** 0 — Reliable Development Loop.
+**Current milestone:** 1 — First Autonomous Economy.
 
-**Next smallest goal:** Make the bot report one concise, useful room or colony status signal that can be verified in the simulation.
+**Next smallest goal:** Bootstrap a starter worker economy that can be verified in the simulation.
 
-**Why this next:** It creates an observation habit before autonomous behavior becomes more complex.
+**Why this next:** The colony should make its first visible move from being observable to sustaining a minimal energy loop on its own.
