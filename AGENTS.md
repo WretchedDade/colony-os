@@ -54,6 +54,17 @@ When asked for the current goal, consult the Colony OS GitHub project and open G
 3. Use `docs/milestones.md` to explain the goal's broader learning context and to select a new issue only when no active or next issue exists.
 4. Do not invent or silently replace a tracked goal; surface a conflict or ask for direction instead.
 
+## Commit Hygiene
+
+When asked to commit changes, keep the history easy to read and review:
+
+- Split commits by independently understandable change when practical; avoid bundling unrelated docs, tooling, tests, and behavior changes into one commit.
+- Prefer small commits that can be explained in one sentence and reverted without surprising side effects.
+- Use conventional prefixes in commit subjects, such as `feat:`, `fix:`, `docs:`, `test:`, `refactor:`, `chore:`, and `build:`.
+- Match the prefix to the user-visible purpose of the commit, not merely the file type. For example, tests for a new feature can be included in the same `feat:` commit when they verify that feature.
+- Mention verification in the final response or issue comment, not in the commit subject.
+- Do not commit unfinished exploratory work unless the user explicitly asks to preserve a checkpoint.
+
 ## When Code Changes Are Requested
 
 If the user clearly asks for implementation, keep changes focused and easy to learn from.
