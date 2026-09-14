@@ -44,6 +44,7 @@ Keep GitHub aligned with work that has actually been completed or started:
 - Update the issue with concise verification notes when a meaningful milestone step is complete.
 - Close an issue and mark it `Done` only after its acceptance criteria have been verified in the simulation or MMO.
 - Create the small, observable issues needed to complete the active milestone; do not pre-create the entire roadmap as a backlog.
+- When writing issues, describe the game behavior and learning outcome; leave the code shape open unless the issue is specifically about architecture.
 
 ### Finding the Current Goal
 
