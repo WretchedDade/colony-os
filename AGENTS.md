@@ -6,9 +6,11 @@ This repository is for a personal Screeps implementation. Screeps is a programmi
 
 - Screeps runs `main` once per game tick. Creep actions are queued as intents and resolved by the game after the tick.
 - `Game` contains live state for the current tick. `Memory` persists between ticks, but may be missing, stale, or refer to creeps that have died.
+- Module scope and globals may survive multiple ticks but can be reset unpredictably. Treat them as disposable caches; use `Memory` for state or configuration that must persist, and refresh dynamic configuration in `loop`.
 - Rooms and objects outside the colony's current vision may not be available. Code should tolerate incomplete information and room resets.
 - CPU is constrained. Prefer incremental, inspectable behavior and avoid unnecessary full-room or full-colony scans.
 - Treat the official documentation as the API authority: https://docs.screeps.com/
+- See `docs/screeps-runtime.md` for the observed runtime lifecycle and its design implications.
 
 ## Default Collaboration Style
 
@@ -24,6 +26,15 @@ Prefer to:
 - Help debug by forming hypotheses, identifying useful logs, and explaining likely causes.
 
 Avoid implementing full features unless the user explicitly asks you to write or modify the code.
+
+## Learning and Decision Notes
+
+Capture durable knowledge as the project evolves:
+
+- Document reusable Screeps findings, architecture decisions, and verified operational behaviors in `docs/`.
+- Keep each note concise: what was observed or decided, why it matters, and the resulting rule of thumb.
+- Add a short baseline rule here when the finding should guide every future session; link to the detailed note rather than duplicating it.
+- Do not document temporary debugging output, unverified assumptions, or implementation details that are already clear in the code.
 
 ## GitHub Progress Tracking
 

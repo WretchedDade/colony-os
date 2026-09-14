@@ -4,6 +4,10 @@
         "lib": ["es2018"],
         "target": "es2018",
         "moduleResolution": "bundler",
+        "paths": {
+            "@/*": ["./src/*"],
+            "@test/*": ["./test/*"]
+        },
         "rootDir": ".",
         "outDir": "dist",
         "sourceMap": true,

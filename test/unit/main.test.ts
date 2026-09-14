@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { loop } from "../../src/main";
-import { cleanupDeadCreepMemory } from "../../src/memory/cleanupDeadCreepMemory";
+import { loop } from "@/main";
+import { cleanupDeadCreepMemory } from "@/memory/cleanupDeadCreepMemory";
 import { Game, Memory } from "./mock";
 
 interface TestGlobal {

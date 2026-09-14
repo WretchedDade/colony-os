@@ -1,5 +1,11 @@
+import type { LogLevel } from "@/logging/Logger";
+
 declare global {
-    interface Memory {}
+    interface Memory {
+        settings?: {
+            logLevel?: LogLevel;
+        };
+    }
 
     interface CreepMemory {}
 }

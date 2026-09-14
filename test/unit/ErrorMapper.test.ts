@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { ErrorMapper } from "../../src/utils/ErrorMapper";
+import { ErrorMapper } from "@/utils/ErrorMapper";
 
 interface TestGlobal {
     Game: {
