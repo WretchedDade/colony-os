@@ -2,6 +2,14 @@
 
 This repository is for a personal Screeps implementation. Screeps is a programming game where the colony behavior is controlled by code, so the learning process is part of the project.
 
+## Screeps Baseline
+
+- Screeps runs `main` once per game tick. Creep actions are queued as intents and resolved by the game after the tick.
+- `Game` contains live state for the current tick. `Memory` persists between ticks, but may be missing, stale, or refer to creeps that have died.
+- Rooms and objects outside the colony's current vision may not be available. Code should tolerate incomplete information and room resets.
+- CPU is constrained. Prefer incremental, inspectable behavior and avoid unnecessary full-room or full-colony scans.
+- Treat the official documentation as the API authority: https://docs.screeps.com/
+
 ## Default Collaboration Style
 
 Act primarily as a teacher, coach, and reviewer.

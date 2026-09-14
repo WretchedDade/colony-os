@@ -48,6 +48,8 @@ Both GitHub environments require a `SCREEPS_TOKEN` environment secret. The token
 
 ## Planned Areas
 
+See [the milestone roadmap](docs/milestones.md) for a learning-oriented progression and definitions of done.
+
 - Creep role behavior
 - Spawn and energy management
 - Room memory and state modeling
