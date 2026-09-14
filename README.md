@@ -42,7 +42,7 @@ Every one-shot `deploy:*` command runs `npm run verify` before uploading. The `w
 
 The pre-commit hook runs Prettier through lint-staged. Only staged files are formatted, and lint-staged adds the formatted results back to the commit automatically. Running `npm install` configures the hook through Husky.
 
-GitHub Actions verifies pull requests and pushes to `main`. After verification succeeds on a push to `main`, it uploads the bundle to the Screeps `main` branch using the `main` GitHub environment. The workflow can also be run manually to deploy either `main` or `simulation`; simulation uploads use the `simulation` GitHub environment and the Screeps `sim` branch.
+GitHub Actions verifies pull requests and pushes to `main` that change files under `src/`. After verification succeeds on a matching push to `main`, it uploads the bundle to the Screeps `main` branch using the `main` GitHub environment. The workflow can also be run manually to deploy either `main` or `simulation`; simulation uploads use the `simulation` GitHub environment and the Screeps `sim` branch.
 
 Both GitHub environments require a `SCREEPS_TOKEN` environment secret. The token is passed through the environment and is never written to the repository.
 
